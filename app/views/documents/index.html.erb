@@ -1,0 +1,20 @@
+<div class="span8 img-polaroid">
+  <table class="table-striped">
+  	<% @documents.each do |document| %>
+    <tr>
+    	<td>
+    		<i class="icon-file"></i> 
+    		<%= link_to document.title, edit_document_path(document), :class => 'btn btn-link' %>	
+    	</td>
+    	<td>
+    		<i class="icon-download-alt"></i>
+    		<%= link_to 'downlaod', download_document_path(document), :class => 'btn btn-warning'%>
+    	</td>
+    	
+    </tr>
+	<% end %>
+  </table>
+</div>
+<div class="span3 well">
+	<%= link_to 'New document', new_document_path, :class => 'btn btn-large btn-info' %>
+</div>

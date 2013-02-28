@@ -1,0 +1,24 @@
+<%= form_for(@document) do |f| %>
+  <% if @document.errors.any? %>
+    <div id="error_explanation" class="alert alert-error">
+      <ul>
+      <% @document.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :title, :class => 'span6', :placeholder => 'Document Title' %>
+  </div>
+  <% if @document.new_record? %>
+  <div class="field">
+    <%= f.file_field :document %>
+  </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit button_text(@document), :class => 'btn btn-success' %>
+    <%= link_to 'back', documents_path%>
+  </div>
+<% end %>
